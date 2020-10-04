@@ -89,8 +89,12 @@ public class Searches {
 
     }
 
-    public Stream<Double> findDecimalFractionByNegativeSignFraction() {
-        return Stream.empty();
+    public Stream<Double> findDecimalFractionByNegativeSignFraction(int negativeSignFraction) {
+        String string=String.valueOf(negativeSignFraction);
+        return (Stream<Double>) new UsersDatabase().findAll()
+                .filter(user -> string.equals(user.getFractions().toString()))
+                .flatMap(user -> user.getFractions().stream())
+                .mapToDouble(Fraction::decimal);
     }
 
     public Fraction findFractionAdditionByUserId(String id) {

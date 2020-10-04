@@ -44,8 +44,12 @@ class SearchesTest {
                 .collect(Collectors.toList()));
     }
 
-    void testFindDecimalFractionBySignFraction() {
+    @Test
+    void testFindDecimalFractionByNegativeSignFraction(){
+        assertEquals(List.of(1),new Searches().findDecimalFractionByNegativeSignFraction(1)
+                .collect(Collectors.toList()));
     }
+
 
     void testFindFractionAdditionByUserId() {
     }
