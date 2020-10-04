@@ -38,7 +38,10 @@ class SearchesTest {
     void testFindUserFamilyNameByAllSignFractionDistinct() {
     }
 
+    @Test
     void testFindDecimalFractionByUserName() {
+        assertEquals(List.of(), new Searches().findDecimalFractionByUserName("Blanco")
+                .collect(Collectors.toList()));
     }
 
     void testFindDecimalFractionBySignFraction() {

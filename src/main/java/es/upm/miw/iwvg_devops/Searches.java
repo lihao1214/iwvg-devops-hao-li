@@ -82,7 +82,11 @@ public class Searches {
     }
 
     public Stream<Double> findDecimalFractionByUserName(String name) {
-        return Stream.empty();
+        return new UsersDatabase().findAll()
+                .filter(user -> name.equals(user.getName()))
+                .flatMap(user -> user.getFractions().stream())
+                .map(Fraction::decimal);
+
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
